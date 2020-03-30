@@ -231,6 +231,10 @@ class KubernetesRequestFactory:
             req['spec']['securityContext'] = pod.security_context
 
     @staticmethod
+    def extract_schedulername(pod, req):
+        req['spec']['schedulerName'] = pod.scheduler_name
+
+    @staticmethod
     def _apply_env_from(pod, req):
         envs_from_secrets = [
             env for env in pod.secrets if env.deploy_type == 'env' and env.key is None

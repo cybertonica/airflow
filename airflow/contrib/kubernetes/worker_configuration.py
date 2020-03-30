@@ -421,5 +421,6 @@ class WorkerConfiguration(LoggingMixin):
             affinity=affinity,
             tolerations=tolerations,
             security_context=self._get_security_context(),
-            configmaps=self._get_configmaps()
+            configmaps=self._get_configmaps(),
+            scheduler_name=self.kube_config.scheduler_name
         )
