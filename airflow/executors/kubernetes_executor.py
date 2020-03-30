@@ -214,6 +214,7 @@ class KubeConfig:  # pylint: disable=too-many-instance-attributes
             self.kube_tolerations = json.loads(tolerations_json)
         else:
             self.kube_tolerations = None
+        self.scheduler_name = conf.get(self.kubernetes_section,'scheduler_name')
 
         kube_client_request_args = conf.get(self.kubernetes_section, 'kube_client_request_args')
         if kube_client_request_args:
